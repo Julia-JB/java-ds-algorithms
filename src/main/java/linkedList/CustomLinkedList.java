@@ -1,17 +1,17 @@
 package linkedList;
 
-public class CustomLinkedList {
-	Node head; // reference to the first node
+public class CustomLinkedList<E> {
+	Node<E> head; // reference to the first node
 	int count;
 
-	public CustomLinkedList(Node newHead) {
+	public CustomLinkedList(Node<E> newHead) {
 		head = newHead;
 		count = 1;
 	}
 
-	public void add(int newData) {
-		Node temp = new Node(newData);
-		Node current = head;
+	public void add(E newData) {
+		Node<E> temp = new Node(newData);
+		Node<E> current = head;
 
 		while (current.getNext() != null) {
 			current = current.getNext();
@@ -20,11 +20,8 @@ public class CustomLinkedList {
 		count++;
 	}
 
-	public int get(int index) {
-		if (index <= 0) {
-			return -1;
-		}
-		Node current = head;
+	public E get(int index) {
+		Node<E> current = head;
 		for (int i = 1; i < index; i++) {
 			current = current.getNext();
 		}
@@ -50,7 +47,7 @@ public class CustomLinkedList {
 			head = null;
 			count = 0;
 		}
-		Node current = head;
+		Node<E> current = head;
 
 		while (current.getNext().getNext() != null) {
 			current = current.getNext();
